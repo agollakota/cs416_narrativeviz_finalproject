@@ -1,42 +1,68 @@
-<!DOCTYPE html> 
-<html> 
-  
-<head> 
-    <title> 
-        D3.js | D3.axis.tickValues() Function 
-    </title> 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-      
-    <style> 
-        svg text { 
-            fill: blue; 
-            font: 15px sans-serif; 
-            text-anchor: center; 
-        } 
-    </style>    
-</head> 
-  
-<body> 
-    <script> 
-        var width = 400, height = 400; 
-        var svg = d3.select("body") 
-            .append("svg") 
-            .attr("width", width) 
-            .attr("height", height); 
-  
-        var xscale = d3.scaleLinear() 
-            .domain([0, 10]) 
-            .range([0, width - 60]); 
-  
-        var x_axis = d3.axisBottom(xscale)
-        .tickValues([2, 4, 6, 7]); 
-  
-        var xAxisTranslate = height / 2; 
-  
-        svg.append("g") 
-            .attr("transform", "translate(50, " 
-            + xAxisTranslate + ")") 
-            .call(x_axis) 
-    </script> 
-</body> 
-</html>
+<svg width="650" height="500"></svg>
+<style>
+        #state-borders {
+            fill:none;
+            stroke: rgb(212, 22, 22);
+            stroke-width: 2px;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            pointer-events: none;
+        }
+
+        .county-boundary {
+            fill: #aaa;
+            stroke: rgb(209, 110, 110);
+            stroke-width: .8px;
+        }
+
+        .county-boundary:hover, .state:hover {
+            fill: rgb(0, 4, 255);
+        }
+
+        svg {
+  font: 10px sans-serif;
+}
+</style>
+<body>
+    <div id="fullpage">
+        <div class="section">
+    
+          <div class="slide" data-anchor="welcome">
+            <h1>Chicago Crime Map during COVID</h1>
+            <h1>Created by Aparna Gollakota</h1>
+            <div class="slide">
+              <p>&nbsp;</p>
+            </div>
+          </div>
+
+
+          <div class="slide" data-anchor="dataset">
+            <h2>The Dataset</h2>
+            <div class="intro">
+              <p>
+                This dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) 
+                that occurred in the City of Chicago in the years 2019, 2020 and 2021.  
+              </p>
+              <p>
+                I wanted to see how the COVID pandemic affected crime in the city of Chicago.
+                <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2019/w98m-zvie" target="_blank">
+                   1) 2019 data
+                  </a>
+                  <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2021/dwme-t96c" target="_blank">
+                   2) 2020 data
+                  </a>
+                  <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2021/dwme-t96c" target="_blank">
+                   3) 2021 data
+                  </a>
+                </p>
+                <button type="button" onclick="myFunction()">Press button to generate graph</button>
+                <button type="button" onclick="myFunctionTwo()">Press button to generate graph TWO</button>
+
+                </div>
+            </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="chart1.js"></script>
+<script src="chart2.js"></script>
+</body>
