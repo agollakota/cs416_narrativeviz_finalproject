@@ -2,8 +2,6 @@ function myFunction(){
     var svg = d3.select("svg");
     var path = d3.geoPath();
     
-    var sample = d3.map();
-
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json", function(error, us) {
       if (error) throw error;
       
